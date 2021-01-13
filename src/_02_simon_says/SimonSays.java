@@ -30,7 +30,7 @@ public class SimonSays extends KeyAdapter {
 
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
-JFrame frame = new JFrame();
+JFrame frame;
 	public void run() {
 		// 2. Add the four images that match keyboard keys like this:
 		// images.put(KeyEvent.VK_UP, "up.jpg");
@@ -67,9 +67,33 @@ JFrame frame = new JFrame();
 
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
-		if(e.getKeyCode()!= (imageIndex) && (simonSays)) {
+		if(e.getKeyCode()!= (imageIndex) && (simonSays = false)) {
+			points +=1;
+			speak("Correct");
+			
 			
 		}
+		if(e.getKeyCode() == (imageIndex)  &&  (simonSays = false)) {
+			speak("wrong");
+			tries +=1;
+			
+		if(e.getKeyCode() != (imageIndex) && (simonSays)) {
+			speak("wrong");
+			tries +=1;
+		}
+
+		}
+		if(tries == 5) {
+			JOptionPane.showMessageDialog(null, "Your score is " + points + "you tried " + tries + "times");
+			System.exit(0);
+
+
+		}
+		
+			
+		frame.dispose();
+		
+		showImage();
 
 		// 20. Increase the value of score
 
@@ -84,31 +108,49 @@ JFrame frame = new JFrame();
 		// 27. Exit the program
 
 		// 23. Dispose of the frame
+		
 
 		// 24. Call the showImage method to show a new image
 	}
 
 	private void showImage() {
 		// 5. Initialize your frame to a new JFrame()
+		 frame = new JFrame();
 
 		// 6. Set the frame to visible
+		frame.setVisible(true);
 
 		// 7. Uncomment the following line to add a random image to your frame
-		// frame.add(getNextRandomImage());
+		 frame.add(getNextRandomImage());
 
 		// 8. Set the name of your frame
+		 frame.setName("Picture");
 
 		// 9. Pack the frame
+		 frame.pack();
 
 		// 10. Set the defaultCloseOperation of your frame to
-		// JFrame.EXIT_ON_CLOSE
+		//JFrame.EXIT_ON_CLOSE
+		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 11. Add a key listener to the frame
+		 frame.addKeyListener(this);
 
 		// 12. Create a new instance of Random
+		 Random random = new Random();
+		 int number = random.nextInt(5);
+		 
+	
 
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
+		 if(number == 4) {
+		 speak("press this key");
+		 simonSays = false;
+		 } else {
+			 speak("Simon says press this key");
+			 simonSays = true;
+		 }
 
 		// 14. Above, set the value of simonSays to true/false appropriately
 
