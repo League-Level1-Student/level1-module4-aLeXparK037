@@ -50,28 +50,51 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 
 		// 1. Make the frame show up
+		frame.setVisible(true);
+		frame.setTitle("Page");
 
 		// 2. Give your frame a title
 
 		// 3. Create a JPanel variable to hold the header using the createHeader method
+		JPanel panel1 = createHeader("Jeopardy");
+		
 
 		// 4. Add the header component to the quizPanel
+		quizPanel.add(panel1);
 
 		// 5. Add the quizPanel to the frame
+		frame.add(quizPanel);
 
 		// 6. Use the createButton method to set the value of firstButton
+		 firstButton = createButton("200");
+		
 
 		// 7. Add the firstButton to the quizPanel
+		 quizPanel.add(firstButton);
 
 		// 8. Write the code to complete the createButton() method below. Check that your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
+		 
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
+		 secondButton = createButton("400");
+		 thirdButton = createButton("800");
+
+		 fourthButton = createButton("1000");
+
+		 
 
 		// 10. Add the secondButton to the quizPanel
+		 quizPanel.add(secondButton);
+		 quizPanel.add(thirdButton);
+		 quizPanel.add(fourthButton);
 
 		// 11. Add action listeners to the buttons (2 lines of code)
+		 firstButton.addActionListener(this);
+		 secondButton.addActionListener(this);
+		 thirdButton.addActionListener(this);
+		 fourthButton.addActionListener(this);
 
 		// 12. Write the code to complete the actionPerformed() method below
 
@@ -93,48 +116,78 @@ public class Jeopardy implements ActionListener {
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
+		JButton button = new JButton();
 
 		// Set the text of the button to the dollarAmount
+		button.setText(dollarAmount);
 
 		// Increment the buttonCount (this should make the layout vertical)
+		buttonCount +=1;
 
 		// Return your new button instead of the temporary button
 
-		return new JButton("temporary button");
+		return new JButton(dollarAmount);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
+		if(firstButton==e.getSource()) {
+		askQuestion("what is log base 4 of 1 equal to", "0", 200);
+		}
 
 			// Call the askQuestion() method
  
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
 
 		// If the buttonPressed was the secondButton
+		if(secondButton==e.getSource()) {
+			askQuestion("What is DNA with only one Helix strand", "RNA", 400);
+		}
 
 			// Call the askQuestion() method with a harder question
+		if(thirdButton==e.getSource()) {
+			askQuestion("Which US President was elected on March 4th, 1861 (Respond with the last name and no caps)", "lincoln",800);
+		}
+		if (fourthButton==e.getSource()) {
+			askQuestion("What color sqaure does the White King in chess go on?", "black", 1000);
+		}
 
 		// Clear the text on the button that was pressed (set the button text to nothing)
-
+buttonPressed.setText(null);
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		
-		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
+		// Use the playJeopardyTheme() method to play music while the user thinks of an answer
+		playJeopardyTheme();
 		
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		String answer = JOptionPane.showInputDialog(question);
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		
 		// If the answer is correct
+		if(answer.equals(correctAnswer)) {
+			sound.stop();
+			score+=prizeMoney;
+			JOptionPane.showMessageDialog(null, "CORRECT!");
+			
+		
+		} else {
+			sound.stop();
+
+			score -=prizeMoney;
+			JOptionPane.showMessageDialog(null, "WRONG! The correct answer was: " + correctAnswer);
+
+		}
+		updateScore();
 
 			// Increase the score by the prizeMoney
+		
 
 			// Pop up a message to tell the user they were correct
 
