@@ -145,7 +145,7 @@ public class Jeopardy implements ActionListener {
 
 		// If the buttonPressed was the secondButton
 		if(secondButton==e.getSource()) {
-			askQuestion("What is DNA with only one Helix strand", "RNA", 400);
+			askQuestion("What is the abbreviation for Deoxyribonucleic acid", "DNA", 400);
 		}
 
 			// Call the askQuestion() method with a harder question
