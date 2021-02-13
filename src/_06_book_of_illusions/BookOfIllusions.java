@@ -20,6 +20,7 @@ public class BookOfIllusions extends MouseAdapter {
 
 	// 1. Make a JFrame variable and initialize it using "new JFrame()"
 JFrame frame = new JFrame();
+JLabel one;
 
 	public void run() {
 		// 2. make the frame visible
@@ -29,10 +30,11 @@ JFrame frame = new JFrame();
 		// 4. find 2 images and save them to your project’s default package
 		
 		// 5. make a variable to hold the location of your image. e.g. "illusion.jpg"
-		String pic = "Knight.jpeg";
+		String pic = "optical1.jpg";
 		// 6. create a variable of type "JLabel" but don’t initialize it yet
 		// 7. use the "loadImage..." methods below to initialize your JLabel
-		JLabel one = loadImageFromComputer("Knight.jpeg");
+		
+		 one = loadImageFromComputer(pic);
 		// 8. add your JLabel to the frame
 		frame.add(one);
 		// 9. call the pack() method on the frame
@@ -46,10 +48,11 @@ JFrame frame = new JFrame();
 		if(e.getSource() == frame)
 		System.out.println("Clicked");
 		// 12. remove everything from the frame that was added earlier
-		frame.removeAll();
+		frame.remove(one);
 		// 13. load a new image like before (this is more than one line of code)
-		String pics = "Pawn.jpeg";
-		JLabel two = loadImageFromComputer("Pawn.jpeg");
+		String pics = "optical2.jpeg";
+		JLabel two = loadImageFromComputer(pics);
+		frame.add(two);
 		// 14. pack the frame
 		frame.pack();
 	}

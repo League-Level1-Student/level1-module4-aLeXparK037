@@ -33,6 +33,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
      // 3. Complete the begin() method in the FortuneTellerRunner class
  	 // 4. add a mouse listener to the frame
+   	 frame.addMouseListener(this);
 
     }
 
@@ -43,22 +44,48 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 int mouseX = e.getX();
    	 int mouseY = e.getY();
    	 // 5. Print the mouseX variable
+   	 System.out.println(mouseX + " " + mouseY);
 
    	 // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
    	 // 7. Adjust your secret location co-ordinates here:
-   	 int secretLocationX = 0;
-   	 int secretLocationY = 0;
+   	 int secretLocationX = 100;
+   	 int secretLocationY = 100;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the fortune teller
+   		 JOptionPane.showInputDialog("you may ask a question");
 
    		 // 9. Find a spooky sound and put it in your _07_fortune_teller package (freesound.org)
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 10. Play the sound
+   		//sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
 
    		 // 11. Use the pause() method below to wait until your music has finished
+   		 pause(5);
 
    		 // 12. Insert your completed Magic 8 ball code here
+   		 Random random = new Random();
+   		 int number = random.nextInt(4);
+   		
+
+   	
+   		 if (number == 0) {
+   			 JOptionPane.showMessageDialog(null, "yes");
+   		 }
+
+   	
+   		 if (number == 1) {
+   			 JOptionPane.showMessageDialog(null, "no");
+   		 }
+   	
+   		 if (number == 2) {
+   			 JOptionPane.showMessageDialog(null, "Maybe you should ask google");
+   		 }
+
+  
+   		 if (number == 3) {
+   			 JOptionPane.showMessageDialog(null, "Figure it out yourself");
+   		 }
 
    	 }
 
