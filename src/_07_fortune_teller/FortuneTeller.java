@@ -61,7 +61,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    		//sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
 
    		 // 11. Use the pause() method below to wait until your music has finished
-   		 pause(5);
+   		 pause(3);
 
    		 // 12. Insert your completed Magic 8 ball code here
    		 Random random = new Random();
