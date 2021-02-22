@@ -56,14 +56,20 @@ public void add(int a, int b) {
 	 label.setText(answer + "");
 	 frame.pack();
 	}
-public void sub() {
-	
+public void sub(int a, int b) {
+	int answer = a - b;
+	 label.setText(answer + "");
+	 frame.pack();
 	}
-public void div() {
-	
+public void div(int a, int b) {
+	int answer = a / b;
+	 label.setText(answer + "");
+	 frame.pack();
 }
-public void mult() {
-	
+public void mult(int a, int b) {
+	int answer = a * b;
+	 label.setText(answer + "");
+	 frame.pack();
 }
 
 @Override
@@ -76,6 +82,27 @@ public void actionPerformed(ActionEvent e) {
 		int b = Integer.parseInt(responses);
 	add(a,b);	
 	
+	}
+	if (e.getSource()==two) {
+		String response = fieldone.getText();
+		int a = Integer.parseInt(response);
+		String responses = fieldtwo.getText();
+		int b = Integer.parseInt(responses);
+	sub(a,b);	
+	}
+	if (e.getSource()==three) {
+		String response = fieldone.getText();
+		int a = Integer.parseInt(response);
+		String responses = fieldtwo.getText();
+		int b = Integer.parseInt(responses);
+	div(a,b);
+	}
+	if(e.getSource()==four) {
+		String response = fieldone.getText();
+		int a = Integer.parseInt(response);
+		String responses = fieldtwo.getText();
+		int b = Integer.parseInt(responses);
+	mult(a,b);
 	}
 }
 
