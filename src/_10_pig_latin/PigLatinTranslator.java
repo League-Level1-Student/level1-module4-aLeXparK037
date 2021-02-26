@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PigLatinTranslator implements ActionListener {
+	  JButton button = new JButton();
+	  JTextField field = new JTextField(10);
+
+
 	
 	
 	/**
@@ -74,8 +78,6 @@ public class PigLatinTranslator implements ActionListener {
 	}
 		  public void run(){
 			  JFrame frame = new JFrame();
-			  JTextField field = new JTextField(10);
-			  JButton button = new JButton();
 			  JLabel label = new JLabel();
 			  JPanel panel = new JPanel();
 			  
@@ -93,6 +95,9 @@ public class PigLatinTranslator implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println("ooo");
+			if (e.getSource()==button) {
+				String text = field.getText();
+				pigWord(text);
+			}
 		}
 }
