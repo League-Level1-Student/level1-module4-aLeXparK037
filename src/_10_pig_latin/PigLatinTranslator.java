@@ -76,9 +76,11 @@ public class PigLatinTranslator implements ActionListener {
 	return i;
 	return 0;
 	}
+		  JLabel label = new JLabel();
+		  JFrame frame = new JFrame();
+
+
 		  public void run(){
-			  JFrame frame = new JFrame();
-			  JLabel label = new JLabel();
 			  JPanel panel = new JPanel();
 			  
 			 button.setText("Translate");
@@ -87,6 +89,7 @@ public class PigLatinTranslator implements ActionListener {
 			  panel.add(field);
 			  panel.add(button);
 			  panel.add(label);
+			 
 			  button.addActionListener(this);
 			  
 			  frame.pack();
@@ -97,7 +100,9 @@ public class PigLatinTranslator implements ActionListener {
 			// TODO Auto-generated method stub
 			if (e.getSource()==button) {
 				String text = field.getText();
-				pigWord(text);
+				String latin = translate(text);
+				label.setText(latin);
+				frame.pack();
 			}
 		}
 }
