@@ -14,7 +14,7 @@ JPanel panel = new JPanel();
 
 	public void run() {
 		 frame.setVisible(true);
-		 frame.setPreferredSize(new Dimension(500,500));
+		 frame.setPreferredSize(new Dimension(500,150));
 		 frame.add(panel);
 		 
 		 for (int i=0; i < 18; i++) {
