@@ -49,10 +49,12 @@ Date one;
 		//if (e.getSource()==)
 		
 		JButton buttonpressed = (JButton) e.getSource();
+		
 		if (buttonpressed.getText().equals("Mole")) {
 		speak("Correct");
 		moleWhacks += 1;
-		if(moleWhacks == 10) {
+		
+		if(moleWhacks == 3) {
 			endGame(one, moleWhacks);
 			moleWhacks = 0;
 		}
@@ -61,7 +63,6 @@ Date one;
 		}
 		
 		frame.dispose();
-		
 		drawButtons();
 
 	}
@@ -85,7 +86,7 @@ Date one;
 	 private void endGame(Date timeAtStart, int molesWhacked) { 
 		    Date timeAtEnd = new Date();
 		    JOptionPane.showMessageDialog(null, "Your whack rate is "
-		            + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked)
+		            + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 100.00 / molesWhacked)
 		                  + " moles per second.");
 		}
 }
