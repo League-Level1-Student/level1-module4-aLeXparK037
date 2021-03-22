@@ -49,7 +49,6 @@ public class slotmachine implements ActionListener {
 		if (e.getSource()==button) {
 			
 			for (int i = 1; i < 4; i++) {
-				System.out.println(i);
 				Random ran = new Random();
 				int num = ran.nextInt(4);
 				
