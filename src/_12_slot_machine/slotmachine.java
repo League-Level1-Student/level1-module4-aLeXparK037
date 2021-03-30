@@ -49,10 +49,7 @@ public class slotmachine implements ActionListener {
 					one = createLabelImage(apple);
 					panel.add(one);
 					frame.pack();
-					int b =+ 1;
-					if (b==3) {
-						JOptionPane.showMessageDialog(null, "You won");
-					}
+					
 				} catch (MalformedURLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
