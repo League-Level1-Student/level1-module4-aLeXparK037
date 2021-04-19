@@ -26,6 +26,7 @@ Date one;
 		 
 		 Random ran = new Random();
 		 int num = ran.nextInt(19);
+		 
 		 System.out.println(num);
 		 for (int i=1; i < 19; i++) {
 			JButton button = new JButton();
