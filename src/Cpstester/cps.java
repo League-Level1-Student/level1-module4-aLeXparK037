@@ -12,7 +12,7 @@ public class cps implements ActionListener {
 
 	JButton button = new JButton();
 	int cpstrack = 0;
-	Timer time = new Timer(1000, null);
+	Timer time = new Timer( 1000, this);
 	//Date one;
 
 	public void run() {
@@ -20,6 +20,7 @@ public class cps implements ActionListener {
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
 		JPanel panel = new JPanel();
+		
 		
 		frame.add(panel);
 		panel.add(button);
@@ -44,9 +45,7 @@ public class cps implements ActionListener {
 			
 		}
 	
-		if (time.isRunning()==false) {
-			JOptionPane.showMessageDialog(null, "you clicked " + cpstrack + " clicks in one second");
-		}
+		
 	}
 	/*private void endGame(Date timeAtStart, int molesWhacked) { 
 	    Date timeAtEnd = new Date();
